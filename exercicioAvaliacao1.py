@@ -27,7 +27,6 @@ frenq_rel = []
 densidade_freq = []
 classe_de_erros = [(4, 9), (9, 14), (14, 19), (19, 24)]
 
-
 for intervalo in classe_de_erros:
     contagem = sum(1 for numero in dataFrame['Erros por dia'] if intervalo[0] <= numero < intervalo[1])
     frenq_abs.append(contagem)
@@ -41,3 +40,9 @@ histFrames= pd.DataFrame(hist)
 print(histFrames)
 histograma = dataFrame['Erros por dia'].hist()
 plt.show()
+numeros_unicos = sorted(set(dataFrame['Erros por dia']))
+
+print("Ramo | Folhas")
+print("-----|-------")
+for numero in numeros_unicos:
+    print(f"  {numero}  | 0")
